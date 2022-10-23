@@ -1,7 +1,8 @@
+import Gallery from 'App/Models/Gallery';
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Gallery from 'App/Models/Gallery'
 
 export default class GalleriesController {
+
   public async index({view}: HttpContextContract) {
     const gallery = await Gallery.query().orderBy('id','asc')
 

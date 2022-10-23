@@ -8,10 +8,10 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 export default class HomeController {
   public async index({view}: HttpContextContract) {
     // const test = await string.truncate({Post.preload('cate')})
-    const one = await Post.query().preload('category').orderBy('id','desc').first()
-    const seconde = await Post.query().preload('category').orderBy('id','desc').limit(2)
-    const post = await Post.query().preload('category').orderBy('id','desc').limit(6)
-    const gallery = await Gallery.query().orderBy('id','desc').limit(6)
+    const one = await Post.query().preload('category').orderBy('id','asc').first()
+    const seconde = await Post.query().preload('category').orderBy('id','asc').limit(2)
+    const post = await Post.query().preload('category').orderBy('id','asc').limit(6)
+    const gallery = await Gallery.query().orderBy('id','asc').limit(6)
     return view.render('landing/index',{
       one,
       seconde,

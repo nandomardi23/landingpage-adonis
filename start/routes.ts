@@ -23,9 +23,9 @@ import  Route  from '@ioc:Adonis/Core/Route';
 // Route.resource('/','Landing/HomeController'  )
 Route.get('/','Landing/HomeController.index' ).as('landing.home')
 
-Route.get('/posted','landing/PostedsController.index').as('landing.posts')
-Route.get('/posted/detail/:id','landing/PostedsController.show').as('landing.posts.show')
-Route.get('/galleries','landing/GalleriesController.index').as('landing.galleries')
+Route.get('/posted','Landing/PostedsController.index').as('landing.posts')
+Route.get('/posted/detail/:id','Landing/PostedsController.show').as('landing.posts.show')
+Route.get('/galleries','Landing/GalleriesController.index').as('landing.galleries')
 
 
 
