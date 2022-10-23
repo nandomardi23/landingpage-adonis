@@ -1,0 +1,21 @@
+@layout('layouts/landing')
+@set('title','Gallery')
+
+@section('content')
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <h3>Latest Images</h3>
+            </div>
+            @each(gallery in gallery)
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                <img src="/uploads/gallery/{{gallery.name}}" alt="img" class="img-responsive"
+                    style="width:380px; height:380px;">
+            </div>
+            @endeach
+
+        </div>
+    </div>
+</div>
+@endsection

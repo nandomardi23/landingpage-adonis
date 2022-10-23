@@ -1,0 +1,8 @@
+{
+  "assets/app.css": "http://localhost:8080/assets/app.css",
+  "assets/app.js": "http://localhost:8080/assets/app.js",
+  "assets/images/CoreUI-Icons-Free.svg?64h6xh": "http://localhost:8080/assets/images/CoreUI-Icons-Free.233de33b.svg",
+  "assets/fonts/CoreUI-Icons-Free.eot?64h6xh": "http://localhost:8080/assets/fonts/CoreUI-Icons-Free.246845e8.eot",
+  "assets/fonts/CoreUI-Icons-Free.ttf?64h6xh": "http://localhost:8080/assets/fonts/CoreUI-Icons-Free.68d6a47a.ttf",
+  "assets/fonts/CoreUI-Icons-Free.woff?64h6xh": "http://localhost:8080/assets/fonts/CoreUI-Icons-Free.7070e73f.woff"
+}

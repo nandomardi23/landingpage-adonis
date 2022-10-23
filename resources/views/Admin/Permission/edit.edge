@@ -1,0 +1,25 @@
+@layout('layouts/admin')
+@set('title','Form edit data permission')
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Form tambah data permission</h4>
+                    </div>
+                    <form action="{{route('permission.update',{id:permission.id})}}?_method=put" method="post">
+                        <div class="card-body">
+                            @include('Admin/Permission/form')
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary"><b><i class="icon cil-send"></i>Submint</b></button>
+                            <a href="{{route('permission.index')}}" class="btn btn-defaults"><b>Kembali</b></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

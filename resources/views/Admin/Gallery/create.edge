@@ -1,0 +1,28 @@
+@layout('layouts/admin')
+@set('title','Form Tambah Data Gallery')
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>
+                            Tambah Data Gallery
+                        </h4>
+                    </div>
+                    <form action="{{route('gallery.store')}}" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            @include('Admin/Gallery/form')
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary"><b><i class="icon cil-send"></i> Submit</b></button>
+                            <a href="{{route('gallery.index')}}" class="btn btn-default">Kembali</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+@endsection

@@ -1,0 +1,19 @@
+<div class="mb-3">
+    <div class="form-group">
+        <label for="title">Nama Role:</label>
+        <input type="text" name="title" id="title"
+            class="form-control {{ (flashMessages.has('errors.title')) ? 'is-invalid' : '' }}" 
+            value="{{role.title}}">
+            @if(flashMessages.has('errors.title'))
+                <small class="invalid-feedback ms-2" role="alert">{{rol}}</small>
+            @endif
+    </div>
+    <div class="form-group mb-3">
+        <label for="permission_ids">Permission</label>
+        <select name="permission_ids[]" id="permission_ids" class="form-select" multiple>
+            @each(permission in permission)
+            <option value="{{permission.id}}" {{permission_roles.includes(permission.id) ? 'selected':''}}>{{permission.title}}</option>
+            @endeach
+        </select>
+    </div>
+</div>

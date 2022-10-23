@@ -1,0 +1,38 @@
+@layout('layouts/admin')
+@set('title','Form tambah data role')
+
+@section('content')
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Form input Role</h3>
+            </div>
+            <form action="{{route('role.store')}}" method="post">
+                <div class="card-body">
+                    {{--  @include('Admin/Roles/form.edge')  --}}
+                    <div class="form-group">
+                        <label for="title">Nama Role:</label>
+                        <input type="text" name="title" id="title"
+                            class="form-control {{ (flashMessages.has('errors.title')) ? 'is-invalid' : '' }}" 
+                            value="{{role.title}}">
+                            @if(flashMessages.has('errors.title'))
+                                <small class="invalid-feedback ms-2" role="alert">{{rol}}</small>
+                            @endif
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="permission_ids">Permission</label>
+                        <select name="permission_ids[]" id="permission_ids" class="form-select" multiple>
+                            @each(permission in permission)
+                            <option value="{{permission.id}}" >{{permission.title}}</option>
+                            @endeach
+                        </select>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><b><i class="icon cil-send"></i>Submit</b></button>
+                    <a href="{{route('role.index')}}" class="btn btn-warning"><b><i class="icon cil-arrow-left"></i>Kembali</b></a>
+                </div>
+            </form>
+        </div>
+    </div>
+@endsection

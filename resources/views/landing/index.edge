@@ -1,0 +1,79 @@
+@layout('layouts/landing')
+@set('title','Home')
+
+@section('content')
+<div class="container my-5">
+    <div class="row">
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <a href="{{route('landing.posts.show',{id:one.id})}}" class="primary-link" style="text-decoration: none">
+                <h1>{{titleCase(one.title)}}</h1>
+            </a>
+            <span class="badge btn btn-info mb-3">{{one.category.name}}</span>
+            <p>{{ truncate(one.body , 30 , ' ...') }}</p>
+        </div>
+
+
+        <div class="col-lg-6 col-md-6 col-sm-12 d-md-block d-lg-block d-sm-none">
+            @each(seconde in seconde)
+            <div class="card rounded-0 mb-2" style="margin-left:19rem;">
+                <div class="card-body">
+                    <a href="{{route('landing.posts.show',{id:seconde.id})}}" class="primary-llink"
+                        style="text-decoration: none;">
+                        <h4>{{titleCase(seconde.title)}}</h4>
+                    </a>
+                    <span class="badge btn btn-info mb-3">{{seconde.category.name}}</span>
+                    <p>{{ truncate(seconde.body ,50 , ' ...') }}</p>
+                </div>
+            </div>
+            @endeach
+        </div>
+
+    </div>
+</div>
+{{-- bagian header --}}
+
+{{-- bagian content post --}}
+<div class="bg-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <h3>Latest Posts</h3>
+            </div>
+            @each(post in post)
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card rounded-0 mb-2">
+                    <div class="card-body">
+                        <a href="{{route('landing.posts.show',{id:post.id})}}" class="primary-link"
+                            style="text-decoration: none;">
+                            <h4>{{titleCase(post.title)}}</h4>
+                        </a>
+                        <span class="badge btn btn-info mb-3"> {{post.category.name}}</span>
+                        <p>{{ truncate(post.body,50, ' ...') }}</p>
+                    </div>
+                </div>
+            </div>
+            @endeach
+        </div>
+    </div>
+</div>
+{{-- bagian content post --}}
+
+{{-- bagian content galleries --}}
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <h3>Latest Images</h3>
+            </div>
+            @each(gallery in gallery)
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                <img src="/uploads/gallery/{{gallery.name}} " alt="img" style="width:380px; height:380px;"
+                    class="img-responsive">
+            </div>
+            @endeach
+        </div>
+    </div>
+</div>
+{{-- bagian content galleries --}}
+@endsection

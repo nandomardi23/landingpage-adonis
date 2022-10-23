@@ -1,0 +1,38 @@
+@layout('layouts/landing')
+@set('title','Detail post ')
+
+@section('content')
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-1">
+                <h1>{{titleCase(post.title)}}</h1>
+                <div class="badge bg-primary mb-2">{{post.category.name}}</div>
+                <div class="text-muted">{{post.createdAt}}</div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="card rounded-0 mb-2">
+                    <div class="card-body">
+                        <p>{{post.body}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <h4>Other Posts</h4>
+                @each(posted in post_2)
+                <div class="card rounded-0 mb-2">
+                    <div class="card-body">
+                        <a href="{{route('landing.posts.show',{id:posted.id})}}" style="text-decoration:none;">
+                            <h4>{{titleCase(posted.title) }}</h4>
+                            <span class="badge bg-primary">{{posted.category.name}}</span>
+                            <p>{{ truncate(posted.body,30, '...') }}</p>
+                        </a>
+                    </div>
+                </div>
+                @endeach
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection

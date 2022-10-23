@@ -1,0 +1,42 @@
+{{-- @entryPointStyles('app') --}}
+<div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+  <div class="sidebar-brand d-none d-md-flex">
+    {{-- <i class="nav"></i> --}}
+    <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
+      <use xlink:href="assets/brand/coreui.svg#full"></use>
+    </svg>
+    <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
+      <use xlink:href="assets/brand/coreui.svg#signet"></use>
+    </svg>
+  </div>
+  <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+    <li class="nav-item"><a class="nav-link" href="index.html">
+        <i class="nav-icon cil-speedometer"></i>
+        Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="{{route('CategorisController.index')}}">
+        <i class="nav-icon cil-clipboard"></i>
+        Kategories</a></li>
+    <li class="nav-item"><a class="nav-link" href="{{route('post.index')}}">
+        <i class="nav-icon cil-pen"></i>
+        Post</a></li>
+    <li class="nav-item"><a class="nav-link" href="{{route('gallery.index')}}">
+        <i class="nav-icon cil-image"></i>
+        Gallery </a></li>
+    <li class="nav-item"><a class="nav-link" href="{{route('permission.index')}}">
+        <i class="nav-icon cil-shield-alt"></i>
+        Permission</a></li>
+    <li class="nav-item"><a class="nav-link" href="{{route('role.index')}}">
+        <i class="nav-icon cil-lock-locked"></i>
+        Role</a></li>
+    <li class="nav-item"><a class="nav-link" href="{{route('user.index')}}">
+        <i class="nav-icon cil-people"></i>
+        User</a></li>
+    <li class="nav-item"><a class="nav-link" href="{{route('profile.index')}}">
+        <i class="nav-icon cil-user"></i>
+        Profile</a></li>
+    <li class="nav-item"><a class="nav-link" href="{{route('setting.index')}}">
+        <i class="nav-icon cil-settings"></i>
+        Setting</a></li>
+  </ul>
+  <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+</div>

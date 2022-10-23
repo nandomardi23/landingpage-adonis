@@ -1,0 +1,21 @@
+@layout('layouts/admin')
+@set('title','Menambahkan Data Post')
+
+@section('content')
+    <div class="container-fluid">
+        <h3> Tambah Data Post </h3>
+        <hr>
+        <form action="{{ route('post.store')}}" method="post">
+            <div class="card">
+                <div class="card-body">
+                    @include('Admin/Post/form')
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><b><i class="icon cil-send"></i> Submit</b></button>
+                    <a href="{{route('post.index')}} " class="btn btn-warning"><b><i class="icon cil-arrow-left"></i> Kembali</b></a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+@endsection

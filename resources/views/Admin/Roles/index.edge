@@ -1,0 +1,57 @@
+@layout('layouts/admin')
+@set('title','Role table')
+
+@section('content')
+<div class="container-fluid">
+    @if(flashMessages.has('success'))
+    <div class="alert alert-success">
+        {{flashMessages.get('success')}}
+    </div>
+    @endif
+
+    <div class=" my-3">
+        <a href="{{route('role.create')}}" class="btn btn-primary"><b><i class="icon cil-plus"></i>Tambah Data</b></a>
+    </div>
+
+    <div class="card mt-5">
+        <div class="card-header">
+            <h5>Table Data Roles</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Permission</th>
+                        <th scope="col">action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @each(roles in roles)
+                    <tr>
+                        <td>{{roles.title}}</td>
+                        <td>
+                            @each(permission in roles.permission)
+                            <span class="badge btn btn-info text-white ">{{permission.title}}</span>
+                            @endeach
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-start">
+                                <a href="{{route('role.edit',{id:roles.id})}}" class="btn btn-warning mx-2"><b><i
+                                            class="icon cil-pencil"></i></b></a>
+                                <form action="{{route('role.destroy',{id:roles.id})}}?_method=delete" method="post">
+                                    <button type="submit" class="btn btn-danger mx-2"
+                                        onclick="return confirm('Apakah Kamu Yakin Mau Menghapus Data ini?')"><b><i
+                                                class="icon cil-trash"></i></b></button>
+                                </form>
+
+                            </div>
+                        </td>
+                    </tr>
+                    @endeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@endsection

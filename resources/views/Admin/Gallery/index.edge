@@ -1,0 +1,48 @@
+@layout('layouts/admin')
+@set('title','Table Data Gallery')
+
+@section('content')
+    <div class="container-fluid">
+        @if(flashMessages.has('success'))
+            <div class="alert alert-success mb-3">
+            {{flashMessages.get('success')}}
+            </div>
+        @endif
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4> <b> Menampilkan Table Data Gallery</b></h4>
+                <div class="d-flex justify-content-end">
+                    <a href="{{route('gallery.create')}}" class="btn btn-primary "><b><i class="icon cil-plus"></i>Add</b></a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Gallery</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @each(gallery in gallery)
+                            <tr>
+                                <td><img src="/uploads/gallery/{{gallery.name}}" alt="" width="100" 
+                                    class="img-thumbnail"></td>
+                                <td>
+                                    <div class="d-flex justify-content-start">
+                                        <a href="{{route('gallery.edit',{id:gallery.id})}}" class="btn btn-warning mx-2"><b>
+                                            <i class="icon cil-pencil"></i></b></a>
+                                            <form action="{{route('gallery.destroy',{id:gallery.id})}}?_method=Delete" method="POST">
+                                                <button type="submit" class="btn btn-danger mx-2"onclick="return confirm('Apakah Kamu Yakin Mau Menghapus Data ini?')"><b><i class="icon cil-trash"></i></b></button>
+                                            </form>
+                                        </div>
+                                </td>
+                            </tr>
+                        @endeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+@endsection

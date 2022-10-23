@@ -1,0 +1,63 @@
+@layout('layouts/admin')
+@set('title','Menampilkan Data User')
+
+@section('content')
+<div class="container-fluid">
+    @if(flashMessages.has('success'))
+    <div class="alert alert-sucess">
+        {{flashMessages.get('success')}}
+    </div>
+    @endif
+    <div class=" my-3">
+        <a href="{{route('user.create')}}" class="btn btn-primary"><b><i class="icon cil-plus"></i>Tambah Data</b></a>
+    </div>
+    <div class="card mt-3">
+        <div class="card-header">
+            <h5>Table data users</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">role</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @each(user in user)
+                    <tr>
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>
+                            @each(role in user.role)
+                            <span class="badge btn btn-info text-white">
+                                {{role.title}}
+                            </span>
+                            @endeach
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-start">
+                                <a href="{{route('user.edit',{id:user.id})}}" class="btn btn-warning mx-2"><b><i
+                                            class="icon cil-pencil"></i></b></a>
+                                <a href="{{route('user.show',{id:user.id})}}" class="btn btn-secondary mx-2"><b><i
+                                            class="icon cil-zoom"></i></b></a>
+                                <form action="{{route('user.destroy',{id:user.id})}}?_method=Delete" method="POST">
+                                    <button type="submit" class="btn btn-danger mx-2"
+                                        onclick="return confirm('Apakah Kamu Yakin Mau Menghapus Data ini?')"><b><i
+                                                class="icon cil-trash"></i></b></button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    @endeach
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+@endsection

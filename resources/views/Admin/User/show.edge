@@ -1,0 +1,43 @@
+@layout('layouts/admin')
+@set('title','Detail dari masing-masing')
+
+@section('content')
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card rounded-1 mb-3">
+                <div class="card-header">
+                    <h5>Detail User</h5>
+                </div>
+                <div class="card-body">
+                    <table>
+                        <tr>
+                            <td>ID User :</td>
+                            <td>{{user.id}}</td>
+                        </tr>
+                        <tr>
+                            <td>Name :</td>
+                            {{-- <td></td> --}}
+                            <td>{{user.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email :</td>
+                            <td>{{user.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>role:</td>
+                            <td>
+                                @each(role in role)
+                                {{role.title}}
+                                @endeach
+                                {{-- {{role_users.role.title}} --}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@endsection

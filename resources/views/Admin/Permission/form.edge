@@ -1,0 +1,8 @@
+<div class="form-group">
+    <label for="title">Permission Title</label>
+    <input type="text" name="title" id="title" 
+    value="{{permission.title}}" class="form-control {{ (flashMessages.has('errors.title')) ? 'is-invalid' :''  }}" >
+    @if(flashMessages.has('errors.title'))
+    <small class="invalid-feedback ms-2" role="alert">{{ flashMessages.get('errors.title') }}</small>
+    @endif
+</div>

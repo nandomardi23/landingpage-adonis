@@ -1,0 +1,21 @@
+@layout('layouts/admin')
+@set('title','Form edit role')
+
+@section('content')
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h4><b>Form edit Role</b></h4>
+            </div>
+            <form action="{{route('role.update',{id:role.id})}}?_method=PUT" method="post">
+                <div class="card-body">
+                    @include('Admin/Roles/form')
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary"><b><i class="icon cil-send"></i>Update</b></button>
+                    <a href="" class="btn btn-default"><b><i class="icon cil-arrow-left"></i> Kembali</b></a>
+                </div>
+            </form>
+        </div>
+    </div>
+@endsection

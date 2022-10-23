@@ -1,0 +1,28 @@
+@layout('layouts/landing')
+@set('title',' Posted')
+
+@section('content')
+<div class="bg-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <h3>Latest Posts</h3>
+            </div>
+            @each(post in post)
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card rounded-0 mb-2">
+                    <div class="card-body">
+                        <a href="{{ route('landing.posts.show',{id:post.id}) }}" style="text-decoration:none;">
+                            <h4>{{ titleCase(post.title) }}</h4>
+                        </a>
+                        <span class="badge btn btn-info mb-3">{{post.category.name}}</span>
+                        <p>{{ truncate(post.body,30, '...') }}</p>
+                    </div>
+                </div>
+            </div>
+            @endeach
+
+        </div>
+    </div>
+</div>
+@endsection
